@@ -11,5 +11,7 @@ router.get("/", (req, res) => {
   res.send( "Сервер работает" ).status(200);
 });
 
+
+
 // Экспортируем роутер
 module.exports = router;

@@ -72,5 +72,15 @@ io.on('connect', (socket) => {
     }
   })
 });
+
+
+io.on('connection',socket => {
+  socket.on('join-room',(name,room) => {
+    socket.join(room);
+    socket.to(room).broadcast.emit(`Пользователь ${name} присоединился к видеочату`)
+  })
+})
+
+
 // Запускаем сервер на локалхост 5000, и подготавливаем к деплою на удаленный хостинг
 server.listen(process.env.PORT || 5000, () => console.log(`Сервер запущен`));
