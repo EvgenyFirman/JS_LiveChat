@@ -3,11 +3,15 @@ import React, { useState, useEffect } from "react";
 import queryString from 'query-string';
 import io from "socket.io-client";
 
+import {Link} from 'react-router-dom'
+
+
 // Импортируем Компоненты
 import TextContainer from '../TextContainer/TextContainer';
 import Messages from '../Messages/Messages';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
+
 
 // Импортируем стили
 import './Chat.css';
@@ -79,8 +83,11 @@ const Chat = ({ location }) => {
           <InfoBar room={room} />
           <Messages messages={messages} name={name} />
           <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+          
       </div>
+      <Link className="chat__btn" to ={`/Video?name=${name}&room=${room}`}> Перейти к Видео Чату</Link>
       <TextContainer users={users}/>
+      
     </div>
   );
 }
